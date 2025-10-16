@@ -44,6 +44,13 @@ canvas#board {
 #next { background: #111; border: 1px solid var(--grid); }
 .controls { display: grid; gap: 4px; opacity: 0.9; }
 
+.camera { margin: 12px 0 16px; display: grid; gap: 8px; }
+.camera button { padding: 6px 10px; cursor: pointer; }
+.camera .camRow { display: flex; gap: 8px; align-items: center; }
+.camera video, .camera canvas { border: 1px solid var(--grid); border-radius: 4px; }
+.camera .hint { font-size: 12px; opacity: 0.8; }
+.hidden { display: none; }
+
 .overlay {
   position: fixed;
   inset: 0;

@@ -20,6 +20,14 @@
         <div class="label">Next</div>
         <canvas id="next" width="128" height="128"></canvas>
       </div>
+      <div class="camera">
+        <button id="startCam">启用摄像头控制</button>
+        <div class="camRow">
+          <video id="cam" playsinline muted class="hidden" width="256" height="144"></video>
+          <canvas id="camDebug" width="256" height="144" class="hidden"></canvas>
+        </div>
+        <div class="hint">首次使用需授权摄像头，按 P 可暂停/恢复</div>
+      </div>
       <div class="controls">
         <div>← → 移动</div>
         <div>↑ 旋转</div>
@@ -38,6 +46,10 @@
     </div>
   </div>
 
+  <!-- MediaPipe Pose + camera utils (CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils@0.3/camera_utils.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/pose@0.5/pose.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils@0.3/drawing_utils.js"></script>
   <script src="main.js"></script>
 </body>
 # </html>
