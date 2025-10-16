@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tetris</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <canvas id="board" width="320" height="640"></canvas>
+    <div class="sidebar">
+      <h1>Tetris</h1>
+      <div class="stats">
+        <div>Score: <span id="score">0</span></div>
+        <div>Level: <span id="level">1</span></div>
+        <div>Lines: <span id="lines">0</span></div>
+      </div>
+      <div class="next">
+        <div class="label">Next</div>
+        <canvas id="next" width="128" height="128"></canvas>
+      </div>
+      <div class="controls">
+        <div>← → 移动</div>
+        <div>↑ 旋转</div>
+        <div>↓ 软降</div>
+        <div>Space 硬降</div>
+        <div>P 暂停</div>
+        <div>R 重开</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="overlay" class="overlay hidden">
+    <div class="dialog">
+      <div class="title" id="overlayTitle">PAUSED</div>
+      <div class="subtitle" id="overlayHint">Press P to Resume</div>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+# </html>
+
+

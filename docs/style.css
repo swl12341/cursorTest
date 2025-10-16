@@ -1,0 +1,65 @@
+:root {
+  --bg: #1e1e1e;
+  --panel: #2a2a2a;
+  --text: #f3f3f3;
+  --grid: #4a4a4a;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  display: grid;
+  place-items: center;
+}
+
+.container {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+}
+
+canvas#board {
+  background: #151515;
+  border: 1px solid var(--grid);
+}
+
+.sidebar {
+  width: 260px;
+  background: var(--panel);
+  border: 1px solid var(--grid);
+  padding: 16px;
+  border-radius: 6px;
+}
+.sidebar h1 {
+  margin: 0 0 8px 0;
+  font-size: 20px;
+}
+.stats { display: grid; gap: 6px; margin-bottom: 12px; }
+.next { margin: 8px 0 16px; }
+.next .label { margin-bottom: 6px; opacity: 0.85; }
+#next { background: #111; border: 1px solid var(--grid); }
+.controls { display: grid; gap: 4px; opacity: 0.9; }
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  display: grid;
+  place-items: center;
+}
+.overlay.hidden { display: none; }
+.dialog {
+  background: var(--panel);
+  border: 1px solid var(--grid);
+  padding: 24px 32px;
+  border-radius: 8px;
+  text-align: center;
+}
+.dialog .title { font-size: 32px; letter-spacing: 2px; margin-bottom: 8px; }
+.dialog .subtitle { opacity: 0.9; }
+
+
