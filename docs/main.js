@@ -312,11 +312,33 @@ async function initializePose() {
   try {
     // Check if MediaPipe is loaded
     if (typeof Pose === 'undefined') {
-      throw new Error('MediaPipe Pose not loaded. Please check your internet connection.');
+      if (window.mediaPipeLoadError) {
+        throw new Error('MediaPipe failed to load from all CDN sources. Please check your internet connection or try a different browser.');
+      } else {
+        throw new Error('MediaPipe is still loading. Please wait a moment and try again.');
+      }
+    }
+    
+    // Wait a bit more for Pose to be fully available
+    let attempts = 0;
+    while (typeof Pose.Pose === 'undefined' && attempts < 10) {
+      await new Promise(resolve => setTimeout(resolve, 100));
+      attempts++;
+    }
+    
+    if (typeof Pose.Pose === 'undefined') {
+      throw new Error('Pose.Pose constructor not available. MediaPipe may not be fully loaded.');
     }
     
     pose = new Pose.Pose({
-      locateFile: (file) => `https://cdn.jsdelivr.net/npm/@mediapipe/pose@0.5/${file}`
+      locateFile: (file) => {
+        // Try multiple CDN sources for model files
+        const sources = [
+          `https://cdn.jsdelivr.net/npm/@mediapipe/pose@0.5/${file}`,
+          `https://unpkg.com/@mediapipe/pose@0.5/${file}`
+        ];
+        return sources[0]; // Start with first source
+      }
     });
     
     pose.setOptions({
