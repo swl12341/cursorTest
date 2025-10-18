@@ -1,21 +1,41 @@
-Tetris (Pygame)
+Tetris (Web Version)
 
-Setup
+A web-based Tetris game with camera gesture control.
 
-1. Install Python 3.9+.
-2. Install dependencies: `pip install -r requirements.txt`.
+## Features
 
-Run
+- Classic Tetris gameplay
+- Camera gesture control (body movement, hand gestures)
+- Keyboard controls as backup
+- Responsive design
 
-`python main.py`
+## Play Online
 
-Controls
+Visit: https://swl12341.github.io/cursorTest/
 
+## Local Development
+
+1. Clone this repository
+2. Open `web/index.html` in a browser
+3. Or use a local server:
+   ```bash
+   cd web
+   python -m http.server 8000
+   # Visit http://localhost:8000
+   ```
+
+## Controls
+
+### Keyboard
 - Left/Right: Move
 - Up: Rotate
 - Down: Soft drop
 - Space: Hard drop
 - P: Pause
 - R: Restart (after game over)
-- Esc: Quit
+
+### Camera Gestures
+- Body center left/right shift: Move piece
+- Right wrist above right shoulder: Rotate
+- Left wrist quick downward motion below hips: Hard drop
 
